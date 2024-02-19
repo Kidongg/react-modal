@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ModalProvider } from "./hooks/useModal";
+import Provider from "./context/Provider";
 
 // 폰트 설정
 const inter = Inter({ subsets: ["latin"] });
@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ModalProvider>{children}</ModalProvider>
+        <Provider>{children}</Provider>
       </body>
     </html>
   );

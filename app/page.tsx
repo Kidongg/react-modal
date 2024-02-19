@@ -1,6 +1,6 @@
 "use client";
 
-import { useModal } from "./hooks/useModal";
+import useModal from "./hook/useModal";
 import styles from "./page.module.css";
 import Modal from "./ui/modal/Modal";
 

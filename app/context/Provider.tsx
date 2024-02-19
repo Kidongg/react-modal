@@ -1,10 +1,9 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { useState } from "react";
+import Context from "./Context";
 
-const ModalContext = createContext<any>({});
-
-export const ModalProvider = ({ children }: { children: React.ReactNode }) => {
+const Provider = ({ children }: { children: React.ReactNode }) => {
   // 모달 상태
   const [isModal, setIsModal] = useState(false);
 
@@ -20,7 +19,7 @@ export const ModalProvider = ({ children }: { children: React.ReactNode }) => {
 
   // 모달 상태와 열기, 닫기 함수를 전달
   return (
-    <ModalContext.Provider
+    <Context.Provider
       value={{
         isModal,
         openModal,
@@ -28,9 +27,8 @@ export const ModalProvider = ({ children }: { children: React.ReactNode }) => {
       }}
     >
       {children}
-    </ModalContext.Provider>
+    </Context.Provider>
   );
 };
 
-// 모달 컨텍스트 훅
-export const useModal = () => useContext(ModalContext);
+export default Provider;
